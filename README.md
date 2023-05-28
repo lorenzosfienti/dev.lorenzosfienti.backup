@@ -1,6 +1,6 @@
 # dev.lorenzosfienti.backup
 
-Progetto del sistema di backup <backup.lorenzosfienti.dev>
+Progetto del sistema di backup <https://backup.lorenzosfienti.dev>
 
 ## Pre requisiti
 
@@ -25,3 +25,8 @@ Per una lista completa dei comandi eseguire `terraform --help` o consultare la [
 ## Output
 
 Il progetto espone access key e secret tramite il comando `terraform apply` oppure possono essere richiesti in qualsiasi momento con `terraform output`. Eventuali dati sensibili vengono mostrati come `<sensitive>`. Se li volete vedere in chiaro dovrete richiedeli esplicitamente: `terraform output -json`
+
+## Funzionamento
+
+Per caricare un file sul bucket dovranno essere usate le credenziali generate da terraform.
+Per accedere ad un file negli header della richiesta dovranno essere passate sempre le stesse credenziali.

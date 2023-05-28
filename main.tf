@@ -63,7 +63,6 @@ resource "aws_cloudfront_function" "check" {
   code    = templatefile("functions/check-request.js",{
     access_key = module.iam.iam_access_key_id,
     access_secret = module.iam.iam_access_key_secret
-    url = "https://${local.domain}"
   })
 }
 
