@@ -18,7 +18,8 @@ data "aws_iam_policy_document" "bucket_policy" {
     ]
 
     resources = [
-      module.bucket.s3_bucket_arn
+      "${module.bucket.s3_bucket_arn}",
+      "${module.bucket.s3_bucket_arn}/*"
     ]
   }
 }
