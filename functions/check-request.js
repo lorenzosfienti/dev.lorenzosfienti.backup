@@ -9,23 +9,25 @@ function handler(event) {
     var access_secret="${access_secret}"
     var request = event.request;
     var response_403 = {
-        statusCode: 403
+        statusCode: 403,
+        statusDescription:"Not authorized"
     }
     if (request.uri=='/'){
         return request
     }
-    if (!request.headers.access_key){
+    if (!request.headers['access_key']){
         return response_403;
     }
-    if (!request.headers.access_secret){
-        return response_403;
-    }
-
-    if (request.headers.access_key!=access_key){
+    
+    if (!request.headers['access_secret']){
         return response_403;
     }
 
-    if (request.headers.access_secret!=access_secret){
+    if (request.headers['access_key'].value!=access_key){
+        return response_403;
+    }
+
+    if (request.headers['access_secret'].value!=access_secret){
         return response_403;
     }
     
